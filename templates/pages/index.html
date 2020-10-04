@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title%} | Welcome {% endblock %}
+
+{% block content %}
+
+<!-- Showcase -->
+<section id="showcase"></section>
+
+<br>
+ <!-- Alert -->
+ {% include 'partials/_alerts.html' %}
+
+<!-- Products -->
+<section id="listings" class="py-5">
+    <div class="container">
+        <h3 class="text-center mb-3">LATEST PRODUCTS 最新商品</h3>
+        <div class="row">
+
+        {% if products %}
+
+            {% for product in products %}
+          <!-- Product 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-preview">
+                    <a href="{% url 'product' product.id %}">
+                        <img src="{{ product.photo_main.url }}" alt="" class="card-img-top">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="listing-heading text-center">
+                        <a href="{% url 'product' product.id %}">
+                            <h4 class="text-primary">{{ product.title }}</h4>
+                        </a>
+                        <p>NT: {{ product.price|intcomma }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        
+        {% else %}
+            <div class="col-md-12">
+                <p>No Products Available</p>
+            </div>
+           
+        {% endif %}        
+           
+        
+        </div>
+    </div>
+</section>
+
+<section id="services" class="py-5 bg-secondary">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 text-center">
+                <i class="fas fa-shopping-bag fa-4x mr-4"></i>
+                <hr>
+                <h6>購物需知</h6>
+                <p>購物流程</p>
+                <p>配送方式</p>
+                <p>常見Q&A</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fas fa-store fa-4x mr-4"></i></i>
+                <hr>
+                <h6>門市資訊</h6>
+                <p>營業日期: TUE.-SUN.</p>
+                <p>營業時間: 12am-8pm</p>
+                <p>門市地址</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fas fa-user-friends fa-4x mr-4"></i>
+                <hr>
+                <h6>聯絡我們</h6>
+                <p>洽詢電話：0918-000-000</p>
+                <p>Email: moonlight@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

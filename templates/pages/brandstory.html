@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title%} | Brand history {% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        
+                <div class="row text-center">
+                        <div class="col-md-12">
+                            <h1 class="display-4">Brand story</h1>
+                        </div>
+                    </div>
+        
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}">
+                        <i class="fas fa-home">Home 首頁</i>
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">Brand Story 品牌故事
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section id="about" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <img src="{% static 'img/flower1.jpg' %}" alt="">
+                <h6>
+                    <br> 
+                    If I can stop one heart from breaking, <br> 
+                    I shall not live in vain; <br> 
+                    If I can ease one life the aching, <br> 
+                    Or cool one pain, <br> 
+                    Or help one fainting robin, <br> 
+                    Unto his nest again, <br> 
+                    I shall not live in vain.  <br> 
+                    <br>                    -- Emily Dickinson <br> 
+                </h6>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/flower-class.jpg' %}" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Activities of The Month</h5>
+                        <h6 class="text-secondary">本月活動</h6>
+                        <p class="card-text">花藝課程教學</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Work -->
+<section id="work" class="text-white text-center">
+    <h3>Present for you love</h3>
+    <a href="{% url 'products' %}" class="btn btn-secondary text-white btn-lg">View Our Products</a>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Florist 花藝師</h2>
+        <div class="row text-center">
+
+            {% if florists %}
+
+                {% for florist in florists %}
+
+                    <div class="col-md-4">
+                        <img src="{{ florist.photo.url }}" alt="" class="rounded-circle mb-3">
+                        <h4>{{ florist.name }}
+                                <a href="{{ florist.ig }}">
+                                        <i class="fab fa-instagram"></i>
+                                </a>
+                        </h4>
+        
+
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+            <div class="col-md-12">
+                <p>No Florists Available</p>
+            </div>
+
+            {% endif %}
+
+            
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}

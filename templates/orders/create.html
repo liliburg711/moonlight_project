@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %} Checkout {% endblock %}
+
+{% block content %}
+
+<section class="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col md-12">
+                <h1>Checkout</h1>
+            </div>
+        </div>
+        <div class="row">
+
+                <div class="col-md-6">
+
+                        <div class="card border-0">
+                            <h3>Your order 購買清單</h3>
+                            <ol class="card-body">
+                                {% for item in cart %}
+                                    <li>
+                                        {{ item.product.title }}, 數量：{{ item.quantity }}
+                                        <span>, NT: {{ item.total_price }}</span>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                            <p>Total NT: {{ cart.get_total_price }}</p>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <h3>Billing information 付款資訊 </h3>
+                        <form action="." method="POST" class="order-form">
+                            {% csrf_token %}
+                            <fieldset>
+                                <legend>Please apply your billing information:</legend>
+
+                                {% for field in form %}
+                                    {% if field.errors %}
+                                    <div class="form-group error">
+                                        <label class="form-label">{{ field.label }}</label>
+                                        <div>{{ field }}
+                                            <span >
+                                                {% for error in field.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <label class="form-label">{{ field.label }}</label>
+                                        <div >{{ field }}
+                                            <span >
+                                                {% if field.help_text %}
+                                                    <p ><small>
+                                                        {{ field.help_text }}
+                                                    </small></p>
+                                                {% endif %}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </fieldset>
+                            <div>
+                                <p>
+                                    <input type="submit" value="Place order" class="btn">
+                                </p>
+                            </div>
+
+                            
+                        </form>
+        
+        
+                    </div>
+        
+        
+        </div>
+
+    
+    </div>
+
+       
+
+</section>
+
+
+
+{% endblock %}
