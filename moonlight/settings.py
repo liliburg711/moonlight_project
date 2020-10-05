@@ -160,3 +160,9 @@ EMAIL_HOST_USER = 'liliburg711@gmail.com'
 EMAIL_HOST_PASSWORD = 'Squrrel711'
 EMAIL_PORT =  587
 EMAIL_USE_TLS = True
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
