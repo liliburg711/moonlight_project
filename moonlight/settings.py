@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'moonlightdb',
         'USER': 'postgres',
-        'PASSWORD': '1987',
+        'PASSWORD': '',
         'HOST': 'localhost'
     }
 }
@@ -151,12 +151,12 @@ MESSAGE_TAGS = {
 CART_SESSION_ID = 'cart'
 
 # django-paypal settings
-PAYPAL_RECEIVER_EMAIL = 'liliburg711@gmail.com'
+PAYPAL_RECEIVER_EMAIL = ''
 PAYPEL_TEST = True
 
 # Email config
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'liliburg711@gmail.com'
-EMAIL_HOST_PASSWORD = 'Squrrel711'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT =  587
 EMAIL_USE_TLS = True
