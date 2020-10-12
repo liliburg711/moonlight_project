@@ -36,7 +36,7 @@ def contact(request):
             'Product Inquiry',
             'There has been an inquiry for '+ product +'. Sign into the admin panel for more info.',
             'liliburg711@gmail.com',
-            [florist_email, ], 
+            [florist_email, 'liliburg711@gmail.com'], 
             fail_silently=False
 
         )
