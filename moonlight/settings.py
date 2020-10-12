@@ -151,7 +151,16 @@ MESSAGE_TAGS = {
 CART_SESSION_ID = 'cart'
 
 
+# django-paypal settings
+PAYPAL_RECEIVER_EMAIL = 'liliburg711@gmail.com'
+PAYPEL_TEST = True
 
+# Email config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'liliburg711@gmail.com'
+EMAIL_HOST_PASSWORD = 'Squrrel711'
+EMAIL_PORT =  587
+EMAIL_USE_TLS = True
 
 try:
     from .local_settings import *

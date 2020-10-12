@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-# from django.core.mail import send_mail
+from django.core.mail import send_mail
 from .models import Contact
 from django.contrib import messages
 
@@ -32,14 +32,14 @@ def contact(request):
         contact.save()
 
         #Send mail
-        # send_mail(
-        #     'Product Inquiry',
-        #     'There has been an inquiry for '+ product +'. Sign into the admin panel for more info.',
-        #     'liliburg711@gmail.com',
-        #     [florist_email, ], 
-        #     fail_silently=False
+        send_mail(
+            'Product Inquiry',
+            'There has been an inquiry for '+ product +'. Sign into the admin panel for more info.',
+            'liliburg711@gmail.com',
+            [florist_email, ], 
+            fail_silently=False
 
-        # )
+        )
         
         print(florist_email)
 
