@@ -11,79 +11,90 @@
         <div class="row">
             <div class="col-md-12">
                     <h3>Your shopping cart 購買商品</h3>
-                    <table class="table table-striped table-borderless">
-                        <thead>
-
-                            <tr>
-                                <th scope="col">Item</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Remove</th>
-                                <th scope="col">Unit price</th>
-                                <th scope="col">Price</th>
-                            </tr>
-
-                        </thead>
-                
-                        <tbody>
-                            {% for item in cart %}
-                                {% with product=item.product %}
-
-                                    <tr>
-                                        <td scope="row">{{ forloop.counter }}</td>
-                                        <td>
-                                            <div class="container">
-                                                    <a href="{{ product.get_absolute_url }}">
-                                                            <img src="{% if product.photo_main %}{{ product.photo_main.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="img-fluid" alt="">
-                                                        </a>
-
-                                            </div>                                  
-                                        </td>
-                                        <td>{{ product.title }}</td>
-                                        <td>
-                                            <form action="{% url 'cart_add' product.id %}" method="POST">
-                                                {{ item.update_quantity_form.quantity}}
-                                                {{ item.update_quantity_form.update }}
-                                                <input type="submit" value="Update" class="btn">
-                                                {% csrf_token %}
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="{% url 'cart_remove' product.id %}">
-                                            <button class="btn">Remove刪除</button>
-                                            </a>
-                                        </td>
-                                        <td class="num">NT: {{ item.price }}</td>
-                                        <td class="num">NT: {{ item.total_price }}</td>
-                                    </tr>
-                                {% endwith %}
-                            {% endfor %}
-                
-                            <tr class="total">
-                                <td>Total</td>
-                                <td colspan="5"></td>
-                                <td>NT: {{ cart.get_total_price }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <p class="text-right">
-                            <button class="btn">
-                                <a href="{% url 'products' %}">Continue shopping 繼續購物</a>
-                            </button>
-                            <button class="btn">
-                                <a href="{% url 'order_create' %}">Checkout 結帳</a>
-                            </button>
-                            
-                    </p>
-                
 
             </div>
 
+        </div>
+        <div class="row">
+
+                <div class="table-responsive">
+
+                        <table class="table table-striped table-borderless">
+                                <thead>
         
+                                    <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Remove</th>
+                                        <th scope="col">Unit price</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+        
+                                </thead>
+                        
+                                <tbody>
+                                    {% for item in cart %}
+                                        {% with product=item.product %}
+        
+                                            <tr>
+                                                <td scope="row">{{ forloop.counter }}</td>
+                                                <td>
+                                                    <div class="container">
+                                                            <a href="{{ product.get_absolute_url }}">
+                                                                    <img src="{% if product.photo_main %}{{ product.photo_main.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="img-fluid" alt="">
+                                                                </a>
+        
+                                                    </div>                                  
+                                                </td>
+                                                <td>{{ product.title }}</td>
+                                                <td>
+                                                    <form action="{% url 'cart_add' product.id %}" method="POST">
+                                                        {{ item.update_quantity_form.quantity}}
+                                                        {{ item.update_quantity_form.update }}
+                                                        <input type="submit" value="Update" class="btn">
+                                                        {% csrf_token %}
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'cart_remove' product.id %}">
+                                                    <button class="btn">Remove刪除</button>
+                                                    </a>
+                                                </td>
+                                                <td class="num">NT: {{ item.price }}</td>
+                                                <td class="num">NT: {{ item.total_price }}</td>
+                                            </tr>
+                                        {% endwith %}
+                                    {% endfor %}
+                        
+                                    <tr class="total">
+                                        <td>Total</td>
+                                        <td colspan="5"></td>
+                                        <td>NT: {{ cart.get_total_price }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+        
+                            <p class="text-right">
+                                    <button class="btn">
+                                        <a href="{% url 'products' %}">Continue shopping 繼續購物</a>
+                                    </button>
+                                    <button class="btn">
+                                        <a href="{% url 'order_create' %}">Checkout 結帳</a>
+                                    </button>
+                                    
+                            </p>
+                        
+    
+    
+                </div>
+
 
         </div>
+            
+                   
+
         
 
     </div>
