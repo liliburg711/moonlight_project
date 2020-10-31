@@ -28,7 +28,7 @@ img {
   -o-background-size: cover;
   background-size: cover;
   position: relative;
-  min-height: 500px;
+  height: auto;
   color: #fff;
   padding-top: 6rem; }
   #showcase .flower-search {
