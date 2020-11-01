@@ -22,13 +22,13 @@ img {
 
 
 #showcase {
-  background: url(../img/showcase.jpg) no-repeat top center fixed;
+  background: url(../img/showcase.jpg) no-repeat top center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: relative;
-  height: auto;
+  min-height: 550px;
   color: #fff;
   padding-top: 6rem; }
   #showcase .flower-search {
