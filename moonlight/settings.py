@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'paypal.standard.ipn',
     'payment.apps.PaymentConfig',
+    'coupons.apps.CouponsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -149,6 +150,7 @@ MESSAGE_TAGS = {
 
 # Shopping Cart
 CART_SESSION_ID = 'cart'
+
 
 
 

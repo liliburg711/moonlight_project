@@ -7,3 +7,4 @@ class CartAddProductForm(forms.Form):
                                         coerce=int)
     update = forms.BooleanField(required=False, initial=False, 
                                     widget=forms.HiddenInput)
+                                    

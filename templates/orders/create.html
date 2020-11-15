@@ -24,8 +24,14 @@
                                         <span>, NT: {{ item.total_price }}</span>
                                     </li>
                                 {% endfor %}
+                                {% if cart.coupon %}
+                                    <p>
+                                        "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)
+                                        <span>- NT{{ cart.get_discount }}</span>
+                                    </p>
+                                {% endif %}
                             </ol>
-                            <p>Total NT: {{ cart.get_total_price }}</p>
+                            <p>Total NT: {{ cart.get_total_price_after_discount }}</p>
                         </div>
                     </div>
         
