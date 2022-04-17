@@ -1,5 +1,5 @@
 # Project Introduction
-> Moonlight [@moonlight](http://moonlightflower.store)- A flower-shopping website developed by Python and Django framework
+> Moonlight - A flower-shopping website developed by Python and Django framework
 
 ## General info
 A shopping website which consider these function for consumer and company:
